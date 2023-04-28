@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9cc74b6f-8e53-49a5-8031-17e59c8e0f43" name="wltracker.dk" url="http://ftp.wltracker.dk  ">
+        <fileTransfer rootFolder="/customers/6/8/a/wltracker.dk/httpd.www" accessType="SFTP" host="ssh.wltracker.dk" port="22" sshConfigId="49f6511e-d56a-4de0-b769-5b9da5857f9b" sshConfig="wltracker.dk@ssh.wltracker.dk:22 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

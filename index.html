@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/style.css?ver=1.02">
+    <script src="https://use.fontawesome.com/141f99fb36.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
+</head>
+<body onload="loadUser()">
+<div id="homePage">
+    <h1>Welcome to your weekend league tracker</h1>
+    <div id="yourGames">
+        <button type="button" id="addGame" onclick="addGame()">Add game</button>
+        <button type="button" id="removeGame" onclick="removeGame()">Remove game</button>
+    </div>
+    <br>
+    <div class="stats-overview">
+        <div class="stats-numbers">
+            <div class="stats">
+                <div class="stat">
+                    <div class="stat-label">Goals</div>
+                    <div class="stat-value goals">25</div>
+                </div>
+                <div class="stat">
+                <div class="stat-label">Assists</div>
+                <div class="stat-value assists">12</div>
+                </div>
+                <div class="stat">
+                <div class="stat-label">Wins</div>
+                <div class="stat-value wins">7</div>
+                </div>
+                <div class="stat">
+                <div class="stat-label">Losses</div>
+                <div class="stat-value losses">3</div>
+                </div>
+                <div class="division">
+                    <img src="https://static.wixstatic.com/media/cb04e9_df3d30c3f725481ca7239c356d87265e~mv2.png/v1/fill/w_630,h_615,al_c,q_90/cb04e9_df3d30c3f725481ca7239c356d87265e~mv2.webp" width="70px" height="70px" alt="Division">
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="pie-chart">
+            <canvas id="win-loss-chart"></canvas>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div id="changeLineup">
+        <h2>Lineup</h2>
+        <button type="button" id="addPlayer" onclick="addPlayer()">Add player</button>
+        <button type="button" id="removePlayer" onclick="removePlayer()">Remove player</button>
+    </div>
+    <br>
+    <div id="yourTeam">
+        <div id="lineup">
+            <table id="lineupPlayers">
+                <tr>
+                    <th>Player</th>
+                    <th>Position</th>
+                    <th>Goals</th>
+                    <th>Assist</th>
+                    <th>Motm</th>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="js/main.js?ver=1.12"></script>
+</body>
+</html>
