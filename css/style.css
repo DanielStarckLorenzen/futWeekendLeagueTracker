@@ -4,6 +4,11 @@ body {
     background-attachment: fixed;
     font-family: Arial, sans-serif;
     font-size: 16px;
+    display: flex;
+    justify-content: center; /* Align items horizontally in the center */
+    align-items: center; /* Align items vertically in the center */
+    min-height: 100vh; /* Ensure the content spans the full viewport height */
+    color: #fff;
 }
 
 /* Set background color and text color */
@@ -25,6 +30,11 @@ h1 {
     color: #FFF;
 }
 
+h2 {
+    text-align: center;
+    color: white;
+}
+
 .stats-overview {
     padding: 10px;
     border: 1px solid #ccc;
@@ -35,26 +45,30 @@ h1 {
     border-radius: 10px;
     box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.5);
     text-align: center;
-    margin: 0 auto 20px auto;
+    margin: 0 auto; /* Center the element horizontally */
 }
 
 .stats-numbers {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    justify-content: center; /* Align items horizontally in the center */
+    align-items: center; /* Align items vertically in the center */
 }
 
 .stats {
+    color: white !important;
     display: flex;
-    justify-content: space-between;
     align-items: center;
     flex: 1;
+    padding: 5%;
 }
 
 .stat {
+    margin-top: -40px;
+    align-items: center;
     display: flex;
-    flex-direction: column;
     text-align: center;
+    flex-direction: column;
+
 }
 
 .stat-label {
@@ -66,10 +80,19 @@ h1 {
 .stat-value {
     font-size: 24px;
     font-weight: bold;
+    margin-right: 7px;
+    text-align: center;
 }
 
 .division {
     margin-right: 20px;
+}
+
+#rankImg, #bestRankImg {
+    width: 65px;
+    height: 70px;
+    margin-right: 30px;
+    margin-left: 20px;
 }
 
 .pie-chart {
@@ -104,7 +127,7 @@ table {
 }
 
 th, td {
-    padding: 10px;
+    padding: 5px;
     text-align: center;
     border: 1px solid #8B5FBF;
     color: #FFF;
@@ -135,6 +158,10 @@ th {
 
 .pbClose {
     width: 300px;
+}
+
+.close-add-game {
+    width: 65px;
 }
 
 .unFocus {
@@ -192,8 +219,9 @@ th {
     .add-player-overlay table, .edit-lineup-overlay table, .add-game-overlay table {
         position: relative;
         left: 0;
-        top: -10px;
+        top: -5px;
         width: 80%;
+        max-width: 80%;
         border-collapse: collapse;
         border-radius: 3%;
         margin: 0 auto;
@@ -204,6 +232,7 @@ th {
         text-align: center;
         border: 1px solid #8B5FBF;
         color: #FFF;
+        font-size: 11px;
     }
 }
 
@@ -213,22 +242,33 @@ th {
     text-align: center;
     color: #FFF;
     position: fixed;
-    top: 5%;
-    left: 10%;
+    top: 2.5%;
+    left: 7.5%;
     width: 80%;
-    height: 90%;
+    height: 87.5%;
     background-color: #693a9b;
     opacity: 90%;
     border-radius: 2%;
     padding: 10px;
     z-index: 3;
+    overflow-y: scroll; /* This makes the overlay scrollable */
+}
+
+.add-game-overlay-content {
+    position: relative;
+}
+
+#resetWl {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
 .game-score {
     display: flex;
-    /*align-items: center;*/ /* align items vertically centered */
-    justify-content: space-between; /* align items horizontally centered */
 
+    align-items: center; /* align items vertically centered */
+    justify-content: center; /* align items horizontally centered */
 }
 
 .game-score input, .game-score h4 {
@@ -261,4 +301,466 @@ th {
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+/* Styling for number input fields */
+input[type=number] {
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    padding: 3px;
+    font-size: 14px;
+    width: 25px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Styling for checkboxes */
+input[type=checkbox] {
+    appearance: none;
+    background-color: #f2f2f2;
+    border: none;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    position: relative;
+}
+
+input[type=checkbox]:checked::before {
+    content: "\2713";
+    color: white;
+    font-size: 25px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+input[type=checkbox]:hover {
+    background-color: #d9d9d9;
+}
+
+input[type=checkbox]:checked {
+    background-color: #2196F3;
+}
+
+nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 97.5%;
+    border-top: 2px solid #6e2fa9;
+    background-color: #7f41bb;
+    padding: 5px;
+    text-align: center;
+    font-size: 0.8em;
+    height: 5%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    z-index: 2;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin: 0 10px;
+}
+
+nav a {
+    position: relative;
+    display: inline-block;
+    top: 15px;
+    text-decoration: none;
+}
+
+nav a i {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+nav a span {
+    color: white;
+    display: block;
+    margin-top: 5px;
+    text-align: center;
+}
+
+#games-stats {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    width: 104%;
+    height: 100px;
+    background-color: rgba(110, 47, 169, 0.37);
+    margin-left: -8px;
+
+}
+
+#addOrRemoveGamesOrReset {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 20px;
+}
+
+#winsAndLosses, #winsAndLossesBest {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: -40px;
+    margin-bottom: -20px;
+    text-align: center;
+    margin-left: 5px;
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    background-color: #007bff;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-bar2 {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: width 0.3s ease-in-out;
+}
+
+.progress-bar-labels {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-size: 14px;
+    color: white;
+    top: 15px;
+}
+
+.progress-bar-labels2 {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    font-size: 10px;
+    color: white;
+    top: -1px;
+}
+
+#totalGoalsConcededBar {
+    position: relative;
+    right: 5px;
+}
+
+#totalGoalsScoredBar {
+    position: relative;
+    left: 5px;
+}
+
+#goalsScored, #goalsConceded {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 17%;
+    margin-right: -14%;
+}
+
+#goalsConceded h3, #goalsScored h3, #goalsScoredBest h3, #goalsConcededBest h3 {
+    margin-top: -10px;
+}
+
+#charts {
+    width: 100%;
+    padding: 8px;
+    margin-left: -8px;
+    background-color: rgba(110, 47, 169, 0.38);
+}
+
+#moreStats {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+}
+
+#moreStats h4 {
+    margin-left: -80px;
+}
+
+#averageStats {
+    margin-left: -8px;
+    width: 100%;
+    padding: 8px;
+    background-color: rgba(110, 47, 169, 0.36);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 70px;
+}
+
+#averageStatsText {
+    margin-top: -10%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+#averageStatsText h6 {
+    margin: 0;
+    padding: 0 1em;
+}
+
+#averageStatsText h4 {
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+#scoredAverageDiv {
+    position: relative;
+    left: 7.5%;
+    display: flex;
+    flex-direction: row;
+    order: 1;
+}
+
+#concededAverageDiv {
+    position: relative;
+    right: -35%;
+    display: flex;
+    flex-direction: row;
+    order: 2;
+}
+
+#averageStatsBar {
+    width: 90%;
+    height: 10px;
+    background-color: #ddd;
+    border-radius: 5px;
+    position: relative;
+    margin-top: 35px;
+    margin-left: -70%;
+
+}
+
+#topGoalScorers, #topAssistMakers, #topAssistMakersAllTime, #topGoalScorersAllTime {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+    color: white;
+}
+
+#topAssistMakers {
+    margin-bottom: 100px;
+}
+
+.pictures {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+.pictures2 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+}
+
+.picture {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.picture img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.name {
+    margin-top: 0.5em;
+    font-size: 0.8em;
+    white-space: nowrap;
+}
+
+.value {
+    position: absolute;
+    top: -0.2em;
+    right: -0.2em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5em;
+    height: 1.5em;
+    border-radius: 50%;
+    background-color: #6e2fa9;
+    color: #ffffff;
+    font-size: 0.8em;
+    font-weight: bold;
+    border: 1px solid #ffffff;
+}
+
+.bg-danger {
+    background-color: #e03434;
+    margin-left: auto;
+    position: absolute;
+    right: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+.bg-success {
+    background-color: #3fb03f;
+    position: absolute;
+    left: 0;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.picture img {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#allWeekendLeaguesTable {
+    position: relative;
+    left: 0;
+    width: 100%;
+}
+
+#bestWeekendLeague {
+    position: relative;
+    background-color: rgba(139, 95, 191, 0.42);
+    width: 100%;
+    padding: 8px;
+    margin-left: -8px;
+    color: white;
+}
+
+#bestWeekendLeagueTitle {
+    margin-left: 5%;
+    margin-top: 2%;
+    margin-bottom: -2%;
+}
+
+#goalsScoredBest, #goalsConcededBest {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15%;
+    margin-right: -14%;
+}
+
+#goalsScoredBest {
+    margin-left: 10%;
+}
+
+#bestWeekendLeague .stat {
+    margin-top: -5%;
+}
+
+#winsAndLossesBest {
+    margin-top: -34px;
+}
+
+#seperator {
+    margin-right: 8px;
+}
+
+.notification {
+    position: fixed;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    display: none;
+    z-index: 9999;
+    opacity: 80%;
+}
+
+#squadDiv, #past-wlDiv {
+    position: relative;
+    margin-top: 10%; /* Adjust this value as needed */
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 90%;
+}
+
+.player {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+}
+
+.player img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.player-name {
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.field {
+    position: relative;
+    width: 100%;
+    height: 800px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Football_field.svg/682px-Football_field.svg.png");
+    border-radius: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.bench {
+    position: relative;
+    width: 100%;
+    height: 130px;
+    margin-bottom: 40%;
 }
